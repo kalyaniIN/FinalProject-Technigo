@@ -3,19 +3,27 @@ import { fetchData } from "./fetchData";
 const API_KEY = "6956b057226e408db3573c050e8af970";
 
 const BASE_URL = "https://api.spoonacular.com/";
-const SEARCH_BASE_URL = `${BASE_URL}/recipes/complexSearch`;
+const SEARCH_BASE_URL = `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&number=10&addRecipeNutrition=true&sort=random`;
+// const RANDOM_RECIPES_URL = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=9`;
 export const IMAGE_BASE_URL = `${BASE_URL}/recipes/complexSearch`;
 
 export const getPopularKeto = async () => {
   const popularKey = "popular_keto";
-  const URL = `${SEARCH_BASE_URL}?apiKey=${API_KEY}&diet=keto&number=9&addRecipeNutrition=true`;
+  const URL = `${SEARCH_BASE_URL}&diet=keto`;
 
   return tryGetLocalStorageData(popularKey, URL);
 };
 
 export const getVegetarianKeto = async () => {
-  const vegKey = "veg_keto";
-  const URL = `${SEARCH_BASE_URL}?apiKey=${API_KEY}&diet=vegetarian&number=9&addRecipeNutrition=true`;
+  const vegKey = "vegetarian_keto";
+  const URL = `${SEARCH_BASE_URL}&diet=vegetarian`;
+
+  return tryGetLocalStorageData(vegKey, URL);
+};
+
+export const getVeganKeto = async () => {
+  const vegKey = "vegan_keto";
+  const URL = `${SEARCH_BASE_URL}&diet=vegan`;
 
   return tryGetLocalStorageData(vegKey, URL);
 };
@@ -24,13 +32,11 @@ export const getVegetarianKeto = async () => {
 // we decided to store the api results in local storage for this demo project.
 const tryGetLocalStorageData = async (key, fetchUrl) => {
   const localData = localStorage.getItem(key);
-  if (localData) {
+  if (localData && localData !== "undefined") {
     return Promise.resolve(JSON.parse(localData));
   }
 
   const fetchedData = await fetchData(fetchUrl);
-
   localStorage.setItem(key, JSON.stringify(fetchedData.results));
-
   return Promise.resolve(fetchedData.results);
 };

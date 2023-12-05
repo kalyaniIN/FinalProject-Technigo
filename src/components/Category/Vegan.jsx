@@ -4,32 +4,22 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import { getVeganKeto } from "../../apis/fetchRecipes";
+
 export const Vegan = () => {
   const [vegan, setVegan] = useState([]);
-  const apiKey = "6956b057226e408db3573c050e8af970";
+
   useEffect(() => {
-    getVegetarian();
+    getVeganList();
   }, []);
 
-  const getVegetarian = async () => {
+  const getVeganList = async () => {
     try {
-      const localRecipes = localStorage.getItem("vegan");
-      if (localRecipes) {
-        const localJSON = JSON.parse(localRecipes);
-        setVegan(localJSON);
-      } else {
-        const response = await fetch(
-          `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&diet=vegan&number=9`
-        );
-        const responseJson = await response.json();
-
-        const apiRecipies = responseJson.recipes;
-
-        localStorage.setItem("vegan", JSON.stringify(apiRecipies));
-        setVegan(apiRecipies);
-      }
+      const data = await getVeganKeto();
+      setVegan(data);
+      console.log(data);
     } catch (error) {
-      console.error("Error setting popular recipes:", error);
+      console.error("Error setting vegan recipes:", error);
     }
   };
 
