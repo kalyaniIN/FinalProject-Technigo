@@ -25,7 +25,22 @@ export const RecipeList = ({ title, recipes }) => {
                     <p>{recipe.title}</p>
                   </Title>
                   <img src={recipe.image} alt="popular food" />
-                  <Gradient />
+                  <Gradient>
+                    <p>
+                      Carbs:{" "}
+                      {recipe.nutrition.caloricBreakdown.percentCarbs.toFixed()}
+                      %
+                    </p>
+                    <p>
+                      Fat:{" "}
+                      {recipe.nutrition.caloricBreakdown.percentFat.toFixed()}%
+                    </p>
+                    <p>
+                      Protein:{" "}
+                      {recipe.nutrition.caloricBreakdown.percentProtein.toFixed()}
+                      %
+                    </p>
+                  </Gradient>
                 </Link>
               </Card>
             </SplideSlide>
@@ -76,4 +91,5 @@ const Gradient = styled.div`
   height: 100%;
   background: linear-gradient(to bottom, #3a000000, #000000b2);
   border-radius: 20px;
+  color: white;
 `;
