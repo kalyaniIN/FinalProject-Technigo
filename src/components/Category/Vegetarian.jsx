@@ -1,29 +1,27 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { getVegetarianKeto } from "../../apis/fetchRecipes";
 import { RecipeList } from "./RecipeList";
+import { getVegetarianRecipeItems } from "../../reducers/recipe/recipeSlice";
 
 export const Vegetarian = () => {
-  const [vegetarianRecipes, setVegetarian] = useState([]);
+  const { isVegetarianRecipeLoading, vegetarianRecipeItems } = useSelector(
+    (state) => state.recipe
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getVegetarianList();
-  }, []);
+    dispatch(getVegetarianRecipeItems());
+  }, [dispatch]);
 
-  const getVegetarianList = async () => {
-    try {
-      const data = await getVegetarianKeto();
-      setVegetarian(data);
-      console.log(data);
-    } catch (error) {
-      console.error("Error setting vegetarian recipes:", error);
-    }
-  };
+  if (isVegetarianRecipeLoading) {
+    return <h1>Loading in progress...</h1>;
+  }
 
   return (
     <RecipeList
       title="Popular Vegetarian Recipes"
-      recipes={vegetarianRecipes}
+      recipes={vegetarianRecipeItems}
     />
   );
 };

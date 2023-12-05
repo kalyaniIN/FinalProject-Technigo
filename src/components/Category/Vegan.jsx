@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { getVeganKeto } from "../../apis/fetchRecipes";
 import { RecipeList } from "./RecipeList";
+import { getVeganRecipeItems } from "../../reducers/recipe/recipeSlice";
 
 export const Vegan = () => {
-  const [veganRecipes, setVegan] = useState([]);
+  const { isVeganRecipeLoading, veganRecipeItems } = useSelector(
+    (state) => state.recipe
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getVeganList();
-  }, []);
+    dispatch(getVeganRecipeItems());
+  }, [dispatch]);
 
-  const getVeganList = async () => {
-    try {
-      const data = await getVeganKeto();
-      setVegan(data);
-      console.log(data);
-    } catch (error) {
-      console.error("Error setting vegan recipes:", error);
-    }
-  };
+  if (isVeganRecipeLoading) {
+    return <h1>Loading in progress...</h1>;
+  }
 
-  return <RecipeList title="Popular Vegan Recipes" recipes={veganRecipes} />;
+  return (
+    <RecipeList title="Popular Vegan Recipes" recipes={veganRecipeItems} />
+  );
 };
