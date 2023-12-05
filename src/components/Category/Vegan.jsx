@@ -4,8 +4,8 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Vegetarian = () => {
-  const [vegetarian, setVegetarian] = useState([]);
+export const Vegan = () => {
+  const [vegan, setVegan] = useState([]);
   const apiKey = "6956b057226e408db3573c050e8af970";
   useEffect(() => {
     getVegetarian();
@@ -13,20 +13,20 @@ export const Vegetarian = () => {
 
   const getVegetarian = async () => {
     try {
-      const localRecipes = localStorage.getItem("veggies");
+      const localRecipes = localStorage.getItem("vegan");
       if (localRecipes) {
         const localJSON = JSON.parse(localRecipes);
-        setVegetarian(localJSON);
+        setVegan(localJSON);
       } else {
         const response = await fetch(
-          `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&diet=vegetarian&number=9`
+          `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&diet=vegan&number=9`
         );
         const responseJson = await response.json();
 
         const apiRecipies = responseJson.recipes;
 
-        localStorage.setItem("veggies", JSON.stringify(apiRecipies));
-        setVegetarian(apiRecipies);
+        localStorage.setItem("vegan", JSON.stringify(apiRecipies));
+        setVegan(apiRecipies);
       }
     } catch (error) {
       console.error("Error setting popular recipes:", error);
@@ -35,7 +35,7 @@ export const Vegetarian = () => {
 
   return (
     <Wrapper>
-      <h3>Popular Vegetarian Recipies</h3>
+      <h3>Popular Vegan Recipies</h3>
       <Splide
         options={{
           perPage: 3,
@@ -45,7 +45,7 @@ export const Vegetarian = () => {
           gap: "1rem",
         }}
       >
-        {vegetarian.map((item) => {
+        {vegan.map((item) => {
           return (
             <SplideSlide key={item.id}>
               <Card>
