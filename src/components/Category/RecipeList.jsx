@@ -2,51 +2,56 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Loading } from "../Loading";
 
-export const RecipeList = ({ title, recipes }) => {
+export const RecipeList = ({ title, recipes, isLoading }) => {
   return (
     <Wrapper>
       <h3>{title}</h3>
-      <Splide
-        options={{
-          perPage: 3,
-          arrows: false,
-          pagination: false,
-          drag: "free",
-          gap: "1rem",
-        }}
-      >
-        {recipes.map((recipe) => {
-          return (
-            <SplideSlide key={recipe.id}>
-              <Card>
-                <Link to={"recipe/" + recipe.id}>
-                  <Title>
-                    <p>{recipe.title}</p>
-                  </Title>
-                  <img src={recipe.image} alt="popular food" />
-                  <Gradient>
-                    <p>
-                      Carbs:{" "}
-                      {recipe.nutrition.caloricBreakdown.percentCarbs.toFixed()}
-                      %
-                    </p>
-                    <p>
-                      Fat:{" "}
-                      {recipe.nutrition.caloricBreakdown.percentFat.toFixed()}%
-                    </p>
-                    <p>
-                      Protein:{" "}
-                      {recipe.nutrition.caloricBreakdown.percentProtein.toFixed()}
-                      %
-                    </p>
-                  </Gradient>
-                </Link>
-              </Card>
-            </SplideSlide>
-          );
-        })}
-      </Splide>
+      {isLoading && <Loading />}
+      {!isLoading && (
+        <Splide
+          options={{
+            perPage: 3,
+            arrows: false,
+            pagination: false,
+            drag: "free",
+            gap: "1rem",
+          }}
+        >
+          {recipes.map((recipe) => {
+            return (
+              <SplideSlide key={recipe.id}>
+                <Card>
+                  <Link to={"recipe/" + recipe.id}>
+                    <Title>
+                      <p>{recipe.title}</p>
+                    </Title>
+                    <img src={recipe.image} alt="popular food" />
+                    <Gradient>
+                      <p>
+                        Carbs:{" "}
+                        {recipe.nutrition.caloricBreakdown.percentCarbs.toFixed()}
+                        %
+                      </p>
+                      <p>
+                        Fat:{" "}
+                        {recipe.nutrition.caloricBreakdown.percentFat.toFixed()}
+                        %
+                      </p>
+                      <p>
+                        Protein:{" "}
+                        {recipe.nutrition.caloricBreakdown.percentProtein.toFixed()}
+                        %
+                      </p>
+                    </Gradient>
+                  </Link>
+                </Card>
+              </SplideSlide>
+            );
+          })}
+        </Splide>
+      )}
     </Wrapper>
   );
 };
