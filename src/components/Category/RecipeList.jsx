@@ -4,10 +4,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Loading } from "../Loading";
 
-export const RecipeList = ({ title, recipes, isLoading }) => {
+export const RecipeList = ({ title,desc, recipes, isLoading }) => {
   return (
     <Wrapper>
       <h3>{title}</h3>
+      <h4>{desc}</h4>
       {isLoading && <Loading />}
       {!isLoading && (
         <Splide

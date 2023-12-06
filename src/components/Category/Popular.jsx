@@ -15,10 +15,12 @@ export const Popular = () => {
   }, [dispatch]);
 
   return (
+    <>
     <RecipeList
       title="Popular Keto Recipes"
       recipes={popularRecipeItems}
       isLoading={isPopularRecipeLoading}
     />
+    </>
   );
 };
