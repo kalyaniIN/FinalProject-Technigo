@@ -1,12 +1,10 @@
-import { PopularKeto } from "../components/Category/Popular";
-import { Vegetarian } from "../components/Category/Vegetarian";
-import { Vegan } from "../components/Category/Vegan";
+import { Popular, Vegetarian, Vegan } from "../components/Category";
 
 export const Home = () => {
   return (
     <div>
       <Vegetarian />
-      <PopularKeto />
+      <Popular />
       <Vegan />
     </div>
   );

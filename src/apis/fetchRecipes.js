@@ -15,10 +15,10 @@ export const getPopularKeto = async () => {
 };
 
 export const getVegetarianKeto = async () => {
-  const vegKey = "vegetarian_keto";
+  const vegetarianKey = "vegetarian_keto";
   const URL = `${SEARCH_BASE_URL}&diet=vegetarian`;
 
-  return tryGetLocalStorageData(vegKey, URL);
+  return tryGetLocalStorageData(vegetarianKey, URL);
 };
 
 export const getVeganKeto = async () => {

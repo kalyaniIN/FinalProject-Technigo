@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { Loading } from "../Loading";
 import { RecipeList } from "./RecipeList";
 import { getVegetarianRecipeItems } from "../../reducers/recipe/recipeSlice";
 
@@ -15,7 +16,7 @@ export const Vegetarian = () => {
   }, [dispatch]);
 
   if (isVegetarianRecipeLoading) {
-    return <h1>Loading in progress...</h1>;
+    return <Loading />;
   }
 
   return (
