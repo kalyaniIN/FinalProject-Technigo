@@ -15,15 +15,11 @@ export const NutritionalDetails = () => {
       let response = await fetch(
         `https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${API_KEY}`
       );
-      console.log(response)
+      console.log(response);
 
       if (response.ok) {
-        console.log("12")
-        // Assuming the response is an image
         let responseJSON = await response.json();
-        console.log("hi")
         setNutritionalDetails(responseJSON);
-        
       } else {
         console.error("Error fetching nutritional details");
       }
@@ -41,7 +37,6 @@ export const NutritionalDetails = () => {
           <p>Fat: {nutritionalDetails.fat}g</p>
           <p>Carbohydrates: {nutritionalDetails.carbs}g</p>
           <p>Protein: {nutritionalDetails.protein}g</p>
-          
         </div>
       )}
     </div>

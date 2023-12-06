@@ -1,0 +1,28 @@
+.nav-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: orange;
+  padding: 15px;
+}
+
+.nav-bar-home {
+  text-align: left;
+}
+
+.nav-bar-brand svg,
+span {
+  vertical-align: middle;
+  font-size: xx-large;
+}
+
+.nav-bar-brand-text {
+  font-size: x-large;
+}
+
+.nav-bar a {
+  text-decoration: none;
+}
+
+.nav-bar .active {
+  text-decoration: underline;
+}

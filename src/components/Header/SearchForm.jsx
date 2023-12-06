@@ -33,19 +33,17 @@ export const SearchForm = () => {
 
   return (
     <div>
-      <StyledHeader>
-        <Logo to="/">Your Logo</Logo>
-        <SearchContainer>
-          <SearchInput
-            type="text"
-            placeholder="Search for recipes..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <SearchButton onClick={handleSearch}>Search</SearchButton>
-        </SearchContainer>
-      </StyledHeader>
-      <CuisineType/>
+      <SearchContainer>
+        <SearchInput
+          type="text"
+          placeholder="Search for recipes..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <SearchButton onClick={handleSearch}>Search</SearchButton>
+      </SearchContainer>
+
+      <CuisineType />
 
       <SearchResultsSection>
         {searchResults !== null && (
@@ -56,10 +54,10 @@ export const SearchForm = () => {
                   <ResultItem key={result.id}>
                     {/* Render each search result item as needed */}
                     <Card>
-                        <Title>
+                      <Title>
                         <p>{result.title}</p>
-                        </Title>
-                        <img src={result.image} alt="popular food" />
+                      </Title>
+                      <img src={result.image} alt="popular food" />
                     </Card>
                   </ResultItem>
                 ))}
@@ -74,23 +72,9 @@ export const SearchForm = () => {
   );
 };
 
-const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #f2f2f2;
-`;
-
-const Logo = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-`;
-
 const SearchContainer = styled.div`
-  display: flex;
   align-items: center;
+  margin: 2rem;
 `;
 
 const SearchInput = styled.input`
@@ -155,5 +139,3 @@ const Title = styled.div`
 const NoResultsMessage = styled.p`
   color: #777;
 `;
-
-
