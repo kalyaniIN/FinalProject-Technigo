@@ -3,26 +3,22 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import { searchRecipesByCuisine } from "../apis/fetchRecipes";
+
 export const Cuisine = () => {
-  const API_KEY = "6956b057226e408db3573c050e8af970";
   let params = useParams();
   const [cuisine, setCuisine] = useState([]);
+
   useEffect(() => {
     getData(params.type);
   }, [params.type]);
 
   async function getData(type) {
-    let localCuisine = localStorage.getItem(params.type);
-    if (localCuisine) {
-      setCuisine(JSON.parse(localCuisine));
-    } else {
-      let response = await fetch(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&cuisine=${type}&number=12`
-      );
-      let responseJSON = await response.json();
-      let responseRecipes = responseJSON.results;
-      setCuisine(responseRecipes);
-      localStorage.setItem(params.type, JSON.stringify(responseRecipes));
+    try {
+      const data = await searchRecipesByCuisine(type);
+      setCuisine(data);
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -32,8 +28,10 @@ export const Cuisine = () => {
         return (
           <Card key={item.id}>
             <Link to={"/recipe/" + item.id}>
+              <Title>
+                <p>{item.title}</p>
+              </Title>
               <img src={item.image} alt={params.type + "food"} />
-              <p>{item.title}</p>
             </Link>
           </Card>
         );
@@ -48,13 +46,31 @@ const Wrapper = styled.div`
   gap: 2rem;
   margin-bottom: 3rem;
 `;
+
 const Card = styled.div`
+  position: relative;
   overflow: hidden;
+  width: 100%;
   height: fit-content;
-  text-align: center;
+  margin-top: 0.7rem;
   img {
-    border-radius: 10px;
+    border-radius: 20px;
+    object-fit: cover;
     width: 100%;
+  }
+`;
+
+const Title = styled.div`
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: fit-content;
+  z-index: 2;
+  p {
+    font-size: 1rem;
+    color: white;
+    text-align: center;
   }
 `;
 

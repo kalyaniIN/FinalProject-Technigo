@@ -1,33 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
-export const NutritionalDetails = () => {
-  const API_KEY = "6956b057226e408db3573c050e8af970";
-  let params = useParams();
-  const [nutritionalDetails, setNutritionalDetails] = useState(null);
-
-  useEffect(() => {
-    getNutritionalImage(params.id);
-  }, [params.id]);
-
-  async function getNutritionalImage(id) {
-    try {
-      let response = await fetch(
-        `https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${API_KEY}`
-      );
-      console.log(response);
-
-      if (response.ok) {
-        let responseJSON = await response.json();
-        setNutritionalDetails(responseJSON);
-      } else {
-        console.error("Error fetching nutritional details");
-      }
-    } catch (error) {
-      console.error("Error during nutritional details fetching:", error);
-    }
-  }
-
+export const NutritionalDetails = ({ nutrition }) => {
+  const nutritionalDetails = getNutritionalDetails(nutrition);
   return (
     <div>
       <h1>Nutritional Details</h1>
@@ -41,4 +13,20 @@ export const NutritionalDetails = () => {
       )}
     </div>
   );
+};
+
+const getNutritionalDetails = (nutrition) => {
+  if (nutrition == undefined) {
+    return;
+  }
+
+  const calories = getAmount("Calories", nutrition.nutrients);
+  const fat = getAmount("Calories", nutrition.nutrients);
+  const carbs = getAmount("Calories", nutrition.nutrients);
+  const protein = getAmount("Calories", nutrition.nutrients);
+  return { calories, fat, carbs, protein };
+};
+
+const getAmount = (key, nutrients) => {
+  return nutrients.filter((n) => n.name == key)[0].amount.toFixed();
 };

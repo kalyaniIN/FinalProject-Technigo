@@ -3,8 +3,8 @@ import { fetchData } from "./fetchData";
 const API_KEY = "6956b057226e408db3573c050e8af970";
 
 const BASE_URL = "https://api.spoonacular.com/";
-const SEARCH_BASE_URL = `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&number=10&addRecipeNutrition=true&sort=random`;
-// const RANDOM_RECIPES_URL = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=9`;
+const SEARCH_BASE_URL = `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&number=12&addRecipeNutrition=true&sort=random`;
+const RECIPE_DETAILS_BASE_URL = `https://api.spoonacular.com/recipes`;
 export const IMAGE_BASE_URL = `${BASE_URL}/recipes/complexSearch`;
 
 export const getPopularKeto = async () => {
@@ -26,6 +26,30 @@ export const getVeganKeto = async () => {
   const URL = `${SEARCH_BASE_URL}&diet=vegan`;
 
   return tryGetLocalStorageData(vegKey, URL);
+};
+
+export const getRecipeDetails = async (id) => {
+  const recipeKey = `recipe_${id}`;
+  const URL = `${RECIPE_DETAILS_BASE_URL}/${id}/information?apiKey=${API_KEY}&includeNutrition=true`;
+
+  const localData = localStorage.getItem(recipeKey);
+  if (localData && localData !== "undefined") {
+    return Promise.resolve(JSON.parse(localData));
+  }
+
+  const fetchedData = await fetchData(URL);
+  localStorage.setItem(recipeKey, JSON.stringify(fetchedData));
+  return Promise.resolve(fetchedData);
+};
+
+export const searchRecipesByQuery = async (query) => {
+  const URL = `${SEARCH_BASE_URL}&query=${query}`;
+  return await fetchData(URL);
+};
+
+export const searchRecipesByCuisine = async (cusine) => {
+  const URL = `${SEARCH_BASE_URL}&cuisine=${cusine}`;
+  return tryGetLocalStorageData(cusine, URL);
 };
 
 // As fetching data from API involves cost after 150 free request points,

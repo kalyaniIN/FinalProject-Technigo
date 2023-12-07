@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Loading } from "../Loading";
 
-export const RecipeList = ({ title,desc, recipes, isLoading }) => {
+export const RecipeList = ({ title, desc, recipes, isLoading }) => {
   return (
     <Wrapper>
       <h3>{title}</h3>
@@ -24,26 +24,17 @@ export const RecipeList = ({ title,desc, recipes, isLoading }) => {
             return (
               <SplideSlide key={recipe.id}>
                 <Card>
-                  <Link to={"recipe/" + recipe.id}>
+                  <Link to={`recipe/${recipe.id}`}>
                     <Title>
                       <p>{recipe.title}</p>
                     </Title>
                     <img src={recipe.image} alt="popular food" />
                     <Gradient>
                       <p>
-                        Carbs:{" "}
-                        {recipe.nutrition.caloricBreakdown.percentCarbs.toFixed()}
-                        %
-                      </p>
-                      <p>
-                        Fat:{" "}
-                        {recipe.nutrition.caloricBreakdown.percentFat.toFixed()}
-                        %
-                      </p>
-                      <p>
-                        Protein:{" "}
-                        {recipe.nutrition.caloricBreakdown.percentProtein.toFixed()}
-                        %
+                        Calories:{" "}
+                        {recipe.nutrition.nutrients
+                          .filter((n) => n.name == "Calories")[0]
+                          .amount.toFixed()}
                       </p>
                     </Gradient>
                   </Link>

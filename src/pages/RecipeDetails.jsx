@@ -3,29 +3,24 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { NutritionalDetails } from "./NutritionalDetails";
 
+import { getRecipeDetails } from "../apis/fetchRecipes";
+
 export const RecipeDetails = () => {
-  const API_KEY = "6956b057226e408db3573c050e8af970";
-  let params = useParams();
+  const params = useParams();
   const [recipe, setRecipe] = useState({});
+
   useEffect(() => {
     getData(params.id);
   }, [params.id]);
 
-  console.log(recipe);
-
   const [activeTab, setActiveTab] = useState("instructions");
 
   async function getData(id) {
-    let localRecipe = localStorage.getItem(params.id);
-    if (localRecipe) {
-      setRecipe(JSON.parse(localRecipe));
-    } else {
-      let response = await fetch(
-        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
-      );
-      let responseJSON = await response.json();
-      setRecipe(responseJSON);
-      localStorage.setItem(params.id, JSON.stringify(responseJSON));
+    try {
+      const data = await getRecipeDetails(id);
+      setRecipe(data);
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -66,7 +61,7 @@ export const RecipeDetails = () => {
           )}
         </Info>
       </Details>
-      <NutritionalDetails />
+      <NutritionalDetails nutrition={recipe.nutrition} />
     </Wrapper>
   );
 };
@@ -79,6 +74,7 @@ const Wrapper = styled.div`
   }
   text-align: left;
 `;
+
 const Image = styled.div`
   flex: 1;
   p {

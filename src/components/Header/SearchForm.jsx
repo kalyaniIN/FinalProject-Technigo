@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { CuisineType } from "./CuisineType";
+import { Link } from "react-router-dom";
+import { searchRecipesByQuery } from "../../apis/fetchRecipes";
 
 export const SearchForm = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -8,24 +10,10 @@ export const SearchForm = () => {
 
   const handleSearch = async () => {
     try {
-      const apiKey = "6956b057226e408db3573c050e8af970";
-      const response = await fetch(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchQuery}&number=10`
+      const data = await searchRecipesByQuery(searchQuery);
+      setSearchResults(
+        data.results && data.results.length > 0 ? data.results : []
       );
-
-      if (response.ok) {
-        const data = await response.json();
-
-        if (data.results && data.results.length > 0) {
-          // If there are results, update the state with the search results
-          setSearchResults(data.results);
-        } else {
-          // If no results, update the state to indicate no results
-          setSearchResults([]);
-        }
-      } else {
-        console.error("Error fetching search results");
-      }
     } catch (error) {
       console.error("Error during search:", error);
     }
@@ -54,10 +42,12 @@ export const SearchForm = () => {
                   <ResultItem key={result.id}>
                     {/* Render each search result item as needed */}
                     <Card>
-                      <Title>
-                        <p>{result.title}</p>
-                      </Title>
-                      <img src={result.image} alt="popular food" />
+                      <Link to={`recipe/${result.id}`}>
+                        <Title>
+                          <p>{result.title}</p>
+                        </Title>
+                        <img src={result.image} alt="popular food" />
+                      </Link>
                     </Card>
                   </ResultItem>
                 ))}
@@ -109,6 +99,7 @@ const ResultItem = styled.div`
   border: 1px solid #ccc;
   border-radius: 4px;
 `;
+
 const Card = styled.div`
   position: relative;
   overflow: hidden;
