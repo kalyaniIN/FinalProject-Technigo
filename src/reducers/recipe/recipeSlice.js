@@ -4,15 +4,18 @@ import {
   getVeganKeto,
   getVegetarianKeto,
   getPopularKeto,
+  getHealthyDietRecipes,
 } from "../../apis/fetchRecipes";
 
 const initialState = {
   veganRecipeItems: [],
   vegetarianRecipeItems: [],
   popularRecipeItems: [],
+  healthyDietRecipeItems: [],
   isVeganRecipeLoading: true,
   isVegetarianRecipeLoading: true,
   isPopularRecipeLoading: true,
+  isHealthyDietRecipeLoading: true,
 };
 
 export const getVeganRecipeItems = createAsyncThunk(
@@ -47,6 +50,20 @@ export const getPopularRecipeItems = createAsyncThunk(
       return data;
     } catch (error) {
       console.error("Error setting vegan recipes:", error);
+      return thunkAPI.rejectWithValue("something went wrong");
+    }
+  }
+);
+
+export const getHealthyDietRecipeItems = createAsyncThunk(
+  "recipe/getHealthyDietRecipeItems",
+  async (payload, thunkAPI) => {
+    try {
+      const data = await getHealthyDietRecipes();
+      const filtered = data.filter((d) => d.healthScore > 80);
+      return filtered;
+    } catch (error) {
+      console.error("Error setting healthy diet recipes:", error);
       return thunkAPI.rejectWithValue("something went wrong");
     }
   }
@@ -87,6 +104,16 @@ const recipeSlice = createSlice({
       })
       .addCase(getPopularRecipeItems.rejected, (state) => {
         state.isPopularRecipeLoading = false;
+      })
+      .addCase(getHealthyDietRecipeItems.pending, (state) => {
+        state.isHealthyDietRecipeLoading = true;
+      })
+      .addCase(getHealthyDietRecipeItems.fulfilled, (state, action) => {
+        state.isHealthyDietRecipeLoading = false;
+        state.healthyDietRecipeItems = action.payload;
+      })
+      .addCase(getHealthyDietRecipeItems.rejected, (state) => {
+        state.isHealthyDietRecipeLoading = false;
       });
   },
 });

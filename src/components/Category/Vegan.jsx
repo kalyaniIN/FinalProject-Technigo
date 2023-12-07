@@ -17,7 +17,6 @@ export const Vegan = () => {
   return (
     <RecipeList
       title="Popular Vegan Recipes"
-      desc = "it is best food"
       recipes={veganRecipeItems}
       isLoading={isVeganRecipeLoading}
     />

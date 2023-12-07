@@ -1,4 +1,9 @@
-import { Popular, Vegetarian, Vegan } from "../components/Category";
+import {
+  Popular,
+  Vegetarian,
+  Vegan,
+  HealthyDiet,
+} from "../components/Category";
 
 export const Home = () => {
   return (
@@ -6,6 +11,7 @@ export const Home = () => {
       <Vegetarian />
       <Popular />
       <Vegan />
+      <HealthyDiet />
     </div>
   );
 };

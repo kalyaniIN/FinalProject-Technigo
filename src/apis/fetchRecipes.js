@@ -28,6 +28,13 @@ export const getVeganKeto = async () => {
   return tryGetLocalStorageData(vegKey, URL);
 };
 
+export const getHealthyDietRecipes = async () => {
+  const popularKey = "healthy_diet_keto";
+  const URL = `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeNutrition=true&sort=random`;
+
+  return tryGetLocalStorageData(popularKey, URL);
+};
+
 export const getRecipeDetails = async (id) => {
   const recipeKey = `recipe_${id}`;
   const URL = `${RECIPE_DETAILS_BASE_URL}/${id}/information?apiKey=${API_KEY}&includeNutrition=true`;
