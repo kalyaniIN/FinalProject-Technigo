@@ -1,0 +1,34 @@
+.nav-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgb(244, 183, 70);
+  padding: 15px;
+}
+
+.nav-bar-home {
+  text-align: left;
+}
+
+.nav-bar-brand svg,
+span {
+  vertical-align: middle;
+  font-size: xx-large;
+}
+
+.nav-bar-brand a {
+  color: white; /* Set text color to white for navigation links */
+  margin-left: 20px; /* Add some margin between links */
+  text-decoration: none;
+}
+
+.nav-bar-brand-text {
+  font-size: x-large;
+}
+
+.nav-bar a {
+  text-decoration: none;
+}
+
+.nav-bar .active {
+  text-decoration: underline;
+}
