@@ -69,7 +69,7 @@ export const RecipeDetails = () => {
 const Wrapper = styled.div`
   display: flex;
   .activated {
-    background: linear-gradient(35deg, #494949, #313131);
+    background: linear-gradient(to right,  rgb(244, 183, 70), #e94057);
     color: white;
   }
   text-align: left;
@@ -81,6 +81,7 @@ const Image = styled.div`
     font-weight: bold;
     font-size: 1.5rem;
     margin-bottom: 3rem;
+    color: rgb(244, 183, 70);
   }
   img {
     width: 75%;

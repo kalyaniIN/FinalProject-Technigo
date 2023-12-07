@@ -1,8 +1,13 @@
+import styled from "styled-components";
 export const NutritionalDetails = ({ nutrition }) => {
   const nutritionalDetails = getNutritionalDetails(nutrition);
   return (
     <div>
+      <HeaderTitle>
       <h1>Nutritional Details</h1>
+      </HeaderTitle>
+      
+      <NutritionalContainer>
       {nutritionalDetails && (
         <div>
           <p>Calories: {nutritionalDetails.calories} kcal</p>
@@ -11,6 +16,7 @@ export const NutritionalDetails = ({ nutrition }) => {
           <p>Protein: {nutritionalDetails.protein} g</p>
         </div>
       )}
+      </NutritionalContainer>
     </div>
   );
 };
@@ -30,3 +36,15 @@ const getNutritionalDetails = (nutrition) => {
 const getAmount = (key, nutrients) => {
   return nutrients.filter((n) => n.name == key)[0]?.amount.toFixed();
 };
+
+const HeaderTitle = styled.div`
+h1{
+  color: rgb(244, 183, 70);
+}
+`;
+
+const NutritionalContainer = styled.div`
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+`;

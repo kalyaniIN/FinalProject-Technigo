@@ -7,11 +7,12 @@ export const NavBar = () => (
   <nav>
     <div className="nav-bar">
       <div className="nav-bar-home">
-        <NavLink to="/">Home</NavLink>
+       
       </div>
       <div className="nav-bar-brand">
-        <MdFoodBank />
-        <span className="nav-bar-brand-text">BalancedBites</span>
+        
+        <NavLink className="head-text" to="/"><MdFoodBank /><span className="nav-bar-brand-text">BalancedBites</span></NavLink>
+        
       </div>
       <div></div>
     </div>

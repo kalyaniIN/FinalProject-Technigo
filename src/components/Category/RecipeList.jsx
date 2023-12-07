@@ -7,7 +7,7 @@ import { Loading } from "../Loading";
 export const RecipeList = ({ title, recipes, isLoading }) => {
   return (
     <Wrapper>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       {isLoading && <Loading />}
       {!isLoading && (
         <Splide
@@ -50,7 +50,12 @@ export const RecipeList = ({ title, recipes, isLoading }) => {
 
 const Wrapper = styled.div`
   margin-bottom: 3rem;
+  h2 {
+  color: rgb(244, 183, 70);
+  margin-bottom:20px;
+  }
 `;
+
 
 const Card = styled.div`
   position: relative;
@@ -61,11 +66,13 @@ const Card = styled.div`
   img {
     border-radius: 20px;
     object-fit: cover;
-    width: 100%;
+    width: 80%;
+    margin-bottom:20px;
+    margin-top: 3rem;
   }
 `;
 
-const Title = styled.div`
+const Gradient = styled.div`
   position: absolute;
   bottom: 5%;
   left: 50%;
@@ -79,7 +86,7 @@ const Title = styled.div`
   }
 `;
 
-const Gradient = styled.div`
+const Title = styled.div`
   position: absolute;
   z-index: 1;
   top: 0;
@@ -88,5 +95,6 @@ const Gradient = styled.div`
   height: 100%;
   background: linear-gradient(to bottom, #3a000000, #000000b2);
   border-radius: 20px;
-  color: white;
+  color: White;
+  font-weight:bold
 `;
