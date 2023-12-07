@@ -60,8 +60,7 @@ export const getHealthyDietRecipeItems = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const data = await getHealthyDietRecipes();
-      const filtered = data.filter((d) => d.healthScore > 80);
-      return filtered;
+      return data;
     } catch (error) {
       console.error("Error setting healthy diet recipes:", error);
       return thunkAPI.rejectWithValue("something went wrong");

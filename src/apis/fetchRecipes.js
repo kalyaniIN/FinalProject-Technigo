@@ -29,10 +29,18 @@ export const getVeganKeto = async () => {
 };
 
 export const getHealthyDietRecipes = async () => {
-  const popularKey = "healthy_diet_keto";
+  const healthyDietKey = "healthy_diet_keto";
   const URL = `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeNutrition=true&sort=random`;
 
-  return tryGetLocalStorageData(popularKey, URL);
+  const localData = localStorage.getItem(healthyDietKey);
+  if (localData && localData !== "undefined") {
+    return Promise.resolve(JSON.parse(localData));
+  }
+
+  const fetchedData = await fetchData(URL);
+  const filtered = fetchedData.results.filter((d) => d.healthScore > 80);
+  localStorage.setItem(healthyDietKey, JSON.stringify(filtered));
+  return Promise.resolve(filtered);
 };
 
 export const getRecipeDetails = async (id) => {
