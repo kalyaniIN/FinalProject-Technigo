@@ -34,7 +34,8 @@ export const RecipeList = ({ title, desc, recipes, isLoading }) => {
                         Calories:{" "}
                         {recipe.nutrition.nutrients
                           .filter((n) => n.name == "Calories")[0]
-                          .amount.toFixed()}
+                          .amount.toFixed()}{" "}
+                        kcal
                       </p>
                     </Gradient>
                   </Link>
