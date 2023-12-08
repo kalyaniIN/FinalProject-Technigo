@@ -22,6 +22,18 @@ export const RecipeSplide = ({ title, recipes, isLoading }) => {
             pagination: false,
             drag: "free",
             gap: "1rem",
+            mediaQuery: "min",
+            breakpoints: {
+              320: {
+                perPage: 1,
+              },
+              641: {
+                perPage: 2,
+              },
+              961: {
+                perPage: 3,
+              },
+            },
           }}
         >
           {displayData.map((recipe) => {
