@@ -5,8 +5,13 @@
   padding: 15px;
 }
 
-.nav-bar-home {
-  text-align: left;
+.nav-bar-favorites {
+  margin-top: 5px;
+  text-align: right;
+}
+
+.nav-bar-favorites a {
+  color: white;
 }
 
 .nav-bar-brand svg,

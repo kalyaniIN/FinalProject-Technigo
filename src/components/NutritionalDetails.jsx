@@ -1,6 +1,8 @@
 import styled from "styled-components";
+
 export const NutritionalDetails = ({ nutrition }) => {
   const nutritionalDetails = getNutritionalDetails(nutrition);
+
   return (
     <div>
       <HeaderTitle>

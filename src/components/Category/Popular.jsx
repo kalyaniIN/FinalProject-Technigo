@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { RecipeList } from "./RecipeList";
+import { RecipeSplide } from "./RecipeSplide";
 import { getPopularRecipeItems } from "../../reducers/recipe/recipeSlice";
 
 export const Popular = () => {
@@ -16,7 +16,7 @@ export const Popular = () => {
 
   return (
     <>
-      <RecipeList
+      <RecipeSplide
         title="Popular Keto Recipes"
         recipes={popularRecipeItems}
         isLoading={isPopularRecipeLoading}

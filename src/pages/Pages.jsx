@@ -4,6 +4,7 @@ import { Home } from "./Home";
 import { Cuisine } from "./Cuisine";
 import { RecipeDetails } from "./RecipeDetails";
 import { SearchResults } from "./SearchResults";
+import { Favorites } from "./Favorites";
 
 export const Pages = () => {
   return (
@@ -12,6 +13,7 @@ export const Pages = () => {
       <Route path="/cuisine/:type" element={<Cuisine />} />
       <Route path="/recipe/:id" element={<RecipeDetails />} />
       <Route path="/search/:query" element={<SearchResults />} />
+      <Route path="/favorites" element={<Favorites />} />
     </Routes>
   );
 };

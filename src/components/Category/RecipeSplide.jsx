@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Loading } from "../Loading";
 
-export const RecipeList = ({ title, recipes, isLoading }) => {
+export const RecipeSplide = ({ title, recipes, isLoading }) => {
   const displayData = recipes
     .map((recipe) => ({
       id: recipe.id,

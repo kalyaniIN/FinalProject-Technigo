@@ -12,6 +12,7 @@ const initialState = {
   vegetarianRecipeItems: [],
   popularRecipeItems: [],
   healthyDietRecipeItems: [],
+  favoriteRecipeItems: [],
   isVeganRecipeLoading: true,
   isVegetarianRecipeLoading: true,
   isPopularRecipeLoading: true,
