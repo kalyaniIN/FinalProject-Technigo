@@ -1,9 +1,9 @@
-import "./App.css";
-import { SearchForm } from "./components/Header/SearchForm";
-import { NavBar } from "./components/Header/NavBar";
-
-import { Pages } from "./pages/Pages";
 import { BrowserRouter } from "react-router-dom";
+
+import { CuisineType, NavBar, SearchForm } from "./components/Header";
+import { Pages } from "./pages/Pages";
+
+import "./App.css";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <SearchForm />
+        <CuisineType />
         <Pages />
       </BrowserRouter>
       <div style={{ marginTop: "100px", marginBottom: "50px" }}></div>

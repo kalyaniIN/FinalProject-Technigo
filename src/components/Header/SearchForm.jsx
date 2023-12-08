@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-import { CuisineType } from "./CuisineType";
-
 export const SearchForm = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -12,19 +10,15 @@ export const SearchForm = () => {
   const handleSearch = async () => navigate(`/search/${searchQuery}`);
 
   return (
-    <div>
-      <SearchContainer>
-        <SearchInput
-          type="text"
-          placeholder="Search for recipes..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <SearchButton onClick={handleSearch}>Search</SearchButton>
-      </SearchContainer>
-
-      <CuisineType />
-    </div>
+    <SearchContainer>
+      <SearchInput
+        type="text"
+        placeholder="Search for recipes..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+      <SearchButton onClick={handleSearch}>Search</SearchButton>
+    </SearchContainer>
   );
 };
 
