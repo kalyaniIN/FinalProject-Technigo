@@ -1,32 +1,34 @@
 import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const RecipeCard = ({ recipe }) => (
   <Card>
-    <Link to={`/recipe/${recipe.id}`}>
-      <Title>
-        <p>{recipe.title}</p>
-      </Title>
-      <RecipeImage name={recipe.title} url={recipe.image} />
-      <Gradient>
-        <p>Calories: {recipe.calories} kcal</p>
-      </Gradient>
-    </Link>
+    <Title>
+      <p>{recipe.title}</p>
+    </Title>
+    <RecipeImage id={recipe.id} name={recipe.title} url={recipe.image} />
+    <Gradient>
+      <p>Calories: {recipe.calories} kcal</p>
+    </Gradient>
   </Card>
 );
 
 const RecipeImage = ({ id, name, url }) => {
   const navigate = useNavigate();
 
+  const handleFavoritesClick = () => {
+    console.log("test fav");
+  };
+
   const handleDetailsClick = () => {
-    navigate(`recipe/${id}`);
+    navigate(`/recipe/${id}`);
   };
 
   return (
     <>
       <Image src={url} alt={name} />
       <IconWrapper>
-        <Button>
+        <Button title="Add to favorite" onClick={handleFavoritesClick}>
           <Svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16.933333 16.933334"
@@ -41,7 +43,7 @@ const RecipeImage = ({ id, name, url }) => {
             />
           </Svg>
         </Button>
-        <Button onClick={handleDetailsClick}>
+        <Button title="Recipe details" onClick={handleDetailsClick}>
           <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <g>
               <circle cx="2.5" cy="12.5" r="2.5" />
@@ -57,7 +59,6 @@ const RecipeImage = ({ id, name, url }) => {
 
 const Title = styled.div`
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -74,7 +75,6 @@ const Gradient = styled.div`
   left: 50%;
   transform: translate(-50%, 0%);
   width: fit-content;
-  z-index: 2;
   p {
     font-size: 1rem;
     color: white;
@@ -122,14 +122,14 @@ const Card = styled.div`
   width: 100%;
   height: fit-content;
   margin-top: 0.7rem;
-  /*  &:hover {
-      ${IconWrapper} {
-        opacity: 1;
-        transition: 0.4s;
-      }
-      ${Image} {
-        opacity: 0.4;
-        transition: 0.4s;
-      }
-    }*/
+  &:hover {
+    ${IconWrapper} {
+      opacity: 1;
+      transition: 0.4s;
+    }
+    ${Image} {
+      opacity: 0.4;
+      transition: 0.4s;
+    }
+  }
 `;
