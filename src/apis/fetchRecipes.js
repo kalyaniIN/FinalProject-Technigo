@@ -33,7 +33,7 @@ export const getHealthyDietRecipes = async () => {
   const URL = `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeNutrition=true&sort=random`;
 
   const localData = localStorage.getItem(healthyDietKey);
-  if (localData && localData !== "undefined") {
+  if (localData && localData !== "undefined" && localData.length > 0) {
     return Promise.resolve(JSON.parse(localData));
   }
 
