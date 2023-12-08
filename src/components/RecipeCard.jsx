@@ -22,6 +22,7 @@ const RecipeImage = ({ recipe }) => {
 
   const handleFavoritesClick = () => {
     dispatch(addToFavorites(recipe));
+    alert("Added to favorites!");
   };
 
   const handleDetailsClick = () => {
