@@ -1,32 +1,36 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { addToFavorites } from "../reducers/recipe/recipeSlice";
 
 export const RecipeCard = ({ recipe }) => (
   <Card>
     <Title>
       <p>{recipe.title}</p>
     </Title>
-    <RecipeImage id={recipe.id} name={recipe.title} url={recipe.image} />
+    <RecipeImage recipe={recipe} />
     <Gradient>
       <p>Calories: {recipe.calories} kcal</p>
     </Gradient>
   </Card>
 );
 
-const RecipeImage = ({ id, name, url }) => {
+const RecipeImage = ({ recipe }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleFavoritesClick = () => {
-    console.log("test fav");
+    dispatch(addToFavorites(recipe));
   };
 
   const handleDetailsClick = () => {
-    navigate(`/recipe/${id}`);
+    navigate(`/recipe/${recipe.id}`);
   };
 
   return (
     <>
-      <Image src={url} alt={name} />
+      <Image src={recipe.image} alt={recipe.title} />
       <IconWrapper>
         <Button title="Add to favorite" onClick={handleFavoritesClick}>
           <Svg

@@ -1,6 +1,7 @@
 export const getDisplayDataFromRecipes = (recipes) => {
   const displayData = recipes
     .map((recipe) => ({
+      ...recipe,
       id: recipe.id,
       title: recipe.title,
       image: recipe.image,
