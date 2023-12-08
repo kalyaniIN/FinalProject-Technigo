@@ -6,7 +6,7 @@
 }
 
 .nav-bar-favorites {
-  margin-top: 5px;
+  margin-top: 22px;
   text-align: right;
 }
 
@@ -36,4 +36,10 @@ span {
 
 .nav-bar .active {
   text-decoration: underline;
+}
+
+@media (min-width: 728px) {
+  .nav-bar-favorites {
+    margin-top: 5px;
+  }
 }
