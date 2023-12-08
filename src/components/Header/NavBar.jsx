@@ -18,7 +18,7 @@ export const NavBar = () => {
         </div>
         <div className="nav-bar-favorites">
           {favoriteRecipeItems.length > 0 && (
-            <NavLink to="/favorites">Favorites</NavLink>
+            <NavLink to="/favorites">❤️</NavLink>
           )}
         </div>
       </div>
