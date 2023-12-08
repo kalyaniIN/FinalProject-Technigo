@@ -5,6 +5,17 @@ import { Link } from "react-router-dom";
 import { Loading } from "../Loading";
 
 export const RecipeList = ({ title, recipes, isLoading }) => {
+  const displayData = recipes
+    .map((recipe) => ({
+      id: recipe.id,
+      title: recipe.title,
+      image: recipe.image,
+      calories: recipe.nutrition.nutrients
+        .filter((n) => n.name == "Calories")[0]
+        .amount.toFixed(),
+    }))
+    .sort((r1, r2) => r1.calories - r2.calories);
+
   return (
     <Wrapper>
       <h2>{title}</h2>
@@ -13,13 +24,13 @@ export const RecipeList = ({ title, recipes, isLoading }) => {
         <Splide
           options={{
             perPage: 3,
-            arrows: false,
+            arrows: true,
             pagination: false,
             drag: "free",
             gap: "1rem",
           }}
         >
-          {recipes.map((recipe) => {
+          {displayData.map((recipe) => {
             return (
               <SplideSlide key={recipe.id}>
                 <Card>
@@ -29,13 +40,7 @@ export const RecipeList = ({ title, recipes, isLoading }) => {
                     </Title>
                     <img src={recipe.image} alt="popular food" />
                     <Gradient>
-                      <p>
-                        Calories:{" "}
-                        {recipe.nutrition.nutrients
-                          .filter((n) => n.name == "Calories")[0]
-                          .amount.toFixed()}{" "}
-                        kcal
-                      </p>
+                      <p>Calories: {recipe.calories} kcal</p>
                     </Gradient>
                   </Link>
                 </Card>
@@ -51,11 +56,10 @@ export const RecipeList = ({ title, recipes, isLoading }) => {
 const Wrapper = styled.div`
   margin-bottom: 3rem;
   h2 {
-  color: rgb(244, 183, 70);
-  margin-bottom:20px;
+    color: rgb(244, 183, 70);
+    margin-bottom: 20px;
   }
 `;
-
 
 const Card = styled.div`
   position: relative;
@@ -67,7 +71,7 @@ const Card = styled.div`
     border-radius: 20px;
     object-fit: cover;
     width: 80%;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     margin-top: 3rem;
   }
 `;
@@ -96,5 +100,5 @@ const Title = styled.div`
   background: linear-gradient(to bottom, #3a000000, #000000b2);
   border-radius: 20px;
   color: White;
-  font-weight:bold
+  font-weight: bold;
 `;
