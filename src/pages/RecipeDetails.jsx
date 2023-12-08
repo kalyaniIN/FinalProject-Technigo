@@ -69,7 +69,7 @@ export const RecipeDetails = () => {
 const Wrapper = styled.div`
   display: flex;
   .activated {
-    background: linear-gradient(to right,  rgb(244, 183, 70), #e94057);
+    background: linear-gradient(to right, rgb(244, 183, 70), #e94057);
     color: white;
   }
   text-align: left;

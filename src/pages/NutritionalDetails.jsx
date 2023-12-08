@@ -4,18 +4,18 @@ export const NutritionalDetails = ({ nutrition }) => {
   return (
     <div>
       <HeaderTitle>
-      <h1>Nutritional Details</h1>
+        <h1>Nutritional Details</h1>
       </HeaderTitle>
-      
+
       <NutritionalContainer>
-      {nutritionalDetails && (
-        <div>
-          <p>Calories: {nutritionalDetails.calories} kcal</p>
-          <p>Fat: {nutritionalDetails.fat} g</p>
-          <p>Carbohydrates: {nutritionalDetails.carbs} g</p>
-          <p>Protein: {nutritionalDetails.protein} g</p>
-        </div>
-      )}
+        {nutritionalDetails && (
+          <div>
+            <p>Calories: {nutritionalDetails.calories} kcal</p>
+            <p>Fat: {nutritionalDetails.fat} g</p>
+            <p>Carbohydrates: {nutritionalDetails.carbs} g</p>
+            <p>Protein: {nutritionalDetails.protein} g</p>
+          </div>
+        )}
       </NutritionalContainer>
     </div>
   );
@@ -38,9 +38,9 @@ const getAmount = (key, nutrients) => {
 };
 
 const HeaderTitle = styled.div`
-h1{
-  color: rgb(244, 183, 70);
-}
+  h1 {
+    color: rgb(244, 183, 70);
+  }
 `;
 
 const NutritionalContainer = styled.div`

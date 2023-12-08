@@ -16,11 +16,11 @@ export const Popular = () => {
 
   return (
     <>
-    <RecipeList
-      title="Popular Keto Recipes"
-      recipes={popularRecipeItems}
-      isLoading={isPopularRecipeLoading}
-    />
+      <RecipeList
+        title="Popular Keto Recipes"
+        recipes={popularRecipeItems}
+        isLoading={isPopularRecipeLoading}
+      />
     </>
   );
 };
