@@ -12,12 +12,12 @@ export const RecipeSplide = ({ title, recipes, isLoading }) => {
 
   return (
     <Wrapper>
-      <h2>{title}</h2>
+      <p className="title-style">{title}</p>
       {isLoading && <Loading />}
       {!isLoading && (
         <Splide
           options={{
-            perPage: 3,
+            perPage: 1,
             arrows: true,
             pagination: false,
             drag: "free",
@@ -50,9 +50,37 @@ export const RecipeSplide = ({ title, recipes, isLoading }) => {
 };
 
 const Wrapper = styled.div`
-  margin-bottom: 3rem;
-  h2 {
+  margin-bottom: 1rem;
+  .title-style {
+    font-size: 1em;
+    font-weight: bolder;
+    margin-bottom: 5px;
+  }
+  .title-style {
     color: rgb(244, 183, 70);
-    margin-bottom: 20px;
+  }
+  @media (min-width: 320px) {
+    margin-bottom: 2rem;
+    .title-style {
+      font-size: 1em;
+      font-weight: bolder;
+      margin-bottom: 10px;
+    }
+  }
+  @media (min-width: 641px) {
+    margin-bottom: 3rem;
+    .title-style {
+      font-size: 1.17em;
+      font-weight: bolder;
+      margin-bottom: 10px;
+    }
+  }
+  @media (min-width: 961px) {
+    margin-bottom: 3rem;
+    .title-style {
+      font-size: 1.5em;
+      font-weight: bolder;
+      margin-bottom: 20px;
+    }
   }
 `;

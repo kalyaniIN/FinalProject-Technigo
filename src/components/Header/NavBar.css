@@ -14,10 +14,18 @@
   color: white;
 }
 
-.nav-bar-brand svg,
-span {
+.nav-bar-brand {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.nav-bar-brand svg {
   vertical-align: middle;
-  font-size: xx-large;
+  font-size: large;
+}
+
+.nav-bar-brand span {
+  vertical-align: middle;
 }
 
 .nav-bar-brand a {
@@ -27,7 +35,7 @@ span {
 }
 
 .nav-bar-brand-text {
-  font-size: x-large;
+  font-size: large;
 }
 
 .nav-bar a {
@@ -41,5 +49,29 @@ span {
 @media (min-width: 728px) {
   .nav-bar-favorites {
     margin-top: 5px;
+  }
+}
+
+@media (min-width: 613px) {
+  .nav-bar-brand-text {
+    font-size: x-large;
+  }
+}
+
+@media (min-width: 961px) {
+  .nav-bar-brand-text {
+    font-size: xx-large;
+  }
+}
+
+@media (min-width: 320px) {
+  .nav-bar-brand svg {
+    font-size: large;
+  }
+}
+
+@media (min-width: 574px) {
+  .nav-bar-brand svg {
+    font-size: xx-large;
   }
 }

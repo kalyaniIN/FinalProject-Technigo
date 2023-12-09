@@ -74,7 +74,22 @@ const Title = styled.div`
   background: linear-gradient(to bottom, #3a000000, #000000b2);
   border-radius: 20px;
   color: White;
-  font-weight: bold;
+  p {
+    font-size: 0.83em;
+    font-weight: bold;
+  }
+  @media (min-width: 320px) {
+    p {
+      font-size: 0.83em;
+      font-weight: bold;
+    }
+  }
+  @media (min-width: 641px) {
+    p {
+      font-size: 1em;
+      font-weight: bold;
+    }
+  }
 `;
 
 const Gradient = styled.div`
@@ -84,9 +99,19 @@ const Gradient = styled.div`
   transform: translate(-50%, 0%);
   width: fit-content;
   p {
-    font-size: 1rem;
+    font-size: 0.83em;
     color: white;
     text-align: center;
+  }
+  @media (min-width: 320px) {
+    p {
+      font-size: 0.83em;
+    }
+  }
+  @media (min-width: 641px) {
+    p {
+      font-size: 1em;
+    }
   }
 `;
 
