@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { NutritionalDetails } from "./NutritionalDetails";
+import { NutritionalDetails } from "../components/NutritionalDetails";
 
 import { getRecipeDetails } from "../apis/fetchRecipes";
 
@@ -73,7 +73,7 @@ export const RecipeDetails = () => {
 const Wrapper = styled.div`
   display: flex;
   .activated {
-    background: linear-gradient(to right,  rgb(244, 183, 70), #e94057);
+    background: linear-gradient(to right, rgb(244, 183, 70), #e94057);
     color: white;
   }
   text-align: left;

@@ -1,27 +1,25 @@
 import styled from "styled-components";
+
 export const NutritionalDetails = ({ nutrition }) => {
   const nutritionalDetails = getNutritionalDetails(nutrition);
+
   return (
     <div>
       <HeaderTitle>
-      <h1>Nutritional Details</h1>
+        <h1>Nutritional Details</h1>
       </HeaderTitle>
-      
+
       <NutritionalContainer>
-      {nutritionalDetails && (
-        <div>
-          {/* <h2>Servings: {nutritionalDetails.servings}</h2> */}
-          <p>Calories: {nutritionalDetails.calories} kcal</p>
-          <p>Fat: {nutritionalDetails.fat} g</p>
-          <p>Carbohydrates: {nutritionalDetails.carbs} g</p>
-          <p>Protein: {nutritionalDetails.protein} g</p>
-          <p>Fiber: {nutritionalDetails.fiber} g</p>
-          <p>Cholesterol: {nutritionalDetails.cholesterol} g</p>
-          <p>Sugar: {nutritionalDetails.sugar} g</p>
-          <p>Iron: {nutritionalDetails.iron} g</p>
-          <p>Calcium: {nutritionalDetails.calcium} g</p>
-        </div>
-      )}
+        {nutritionalDetails && (
+          <div>
+            {/* <h2>Servings: {nutritionalDetails.servings}</h2> */}
+            {nutritionalDetails.map((detail, index) => (
+              <p key={index}>
+                {detail.name}: {detail.value} {detail.unit}
+              </p>
+            ))}
+          </div>
+        )}
       </NutritionalContainer>
     </div>
   );
@@ -31,7 +29,7 @@ const getNutritionalDetails = (nutrition) => {
   if (nutrition == undefined) {
     return;
   }
- 
+
   const calories = getAmount("Calories", nutrition.nutrients);
   const fat = getAmount("Fat", nutrition.nutrients);
   const carbs = getAmount("Carbohydrates", nutrition.nutrients);
@@ -41,17 +39,33 @@ const getNutritionalDetails = (nutrition) => {
   const sugar = getAmount("Sugar", nutrition.nutrients);
   const iron = getAmount("Iron", nutrition.nutrients);
   const calcium = getAmount("Calcium", nutrition.nutrients);
-  return { calories, fat, carbs, protein,fiber,cholesterol,sugar,iron,calcium };
+
+  return [
+    calories,
+    fat,
+    carbs,
+    protein,
+    fiber,
+    cholesterol,
+    sugar,
+    iron,
+    calcium,
+  ];
 };
 
 const getAmount = (key, nutrients) => {
-  return nutrients.filter((n) => n.name == key)[0]?.amount.toFixed();
+  const nutrient = nutrients.filter((n) => n.name == key)[0];
+  return {
+    name: key,
+    value: nutrient?.amount.toFixed(),
+    unit: nutrient?.unit,
+  };
 };
 
 const HeaderTitle = styled.div`
-h1{
-  color: rgb(244, 183, 70);
-}
+  h1 {
+    color: rgb(244, 183, 70);
+  }
 `;
 
 const NutritionalContainer = styled.div`

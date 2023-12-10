@@ -52,7 +52,7 @@ const SLink = styled(NavLink)`
   }
 
   &.active {
-    background: linear-gradient(to right,  rgb(244, 183, 70), #e94057);
+    background: linear-gradient(to right, rgb(244, 183, 70), #e94057);
     text-decoration: none;
   }
 `;
