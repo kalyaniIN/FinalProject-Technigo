@@ -6,7 +6,7 @@ export const NutritionalDetails = ({ nutrition }) => {
   return (
     <div>
       <HeaderTitle>
-        <h1>Nutritional Details</h1>
+        <p>Nutritional Details</p>
       </HeaderTitle>
 
       <NutritionalContainer>
@@ -63,13 +63,36 @@ const getAmount = (key, nutrients) => {
 };
 
 const HeaderTitle = styled.div`
-  h1 {
+  p {
     color: rgb(244, 183, 70);
+    font-size: 0.83em;
+    font-weight: bold;
+  }
+  @media (min-width: 320px) {
+    p {
+      font-size: 0.83em;
+      font-weight: bold;
+    }
+  }
+  @media (min-width: 641px) {
+    p {
+      font-size: 1em;
+      font-weight: bold;
+    }
+  }
+  @media (min-width: 961px) {
+    p {
+      font-size: 1.13em;
+      font-weight: bold;
+    }
   }
 `;
 
 const NutritionalContainer = styled.div`
   border: 1px solid #ccc;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
+  @media (min-width: 961px) {
+    margin-top: 20px;
+  }
 `;

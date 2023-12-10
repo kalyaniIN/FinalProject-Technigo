@@ -18,7 +18,7 @@ export const SearchForm = () => {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      <SearchButton onClick={handleSearch}>
+      <SearchButton disabled={!searchQuery.trim()} onClick={handleSearch}>
         <BsSearch className="btn-icon" size={20} />
       </SearchButton>
     </SearchContainer>
@@ -44,4 +44,8 @@ const SearchButton = styled.button`
   border: none;
   border-radius: 90px;
   cursor: pointer;
+  vertical-align: middle;
+  background-color: ${({ disabled }) =>
+    !disabled ? "rgb(244, 183, 70)" : "gray"};
+  cursor: ${({ disabled }) => (!disabled ? "pointer" : null)};
 `;

@@ -5,11 +5,9 @@ import { NutritionalDetails } from "../components/NutritionalDetails";
 
 import { getRecipeDetails } from "../apis/fetchRecipes";
 
-
 export const RecipeDetails = () => {
   const params = useParams();
   const [recipe, setRecipe] = useState({});
-  
 
   useEffect(() => {
     getData(params.id);
@@ -21,7 +19,6 @@ export const RecipeDetails = () => {
     try {
       const data = await getRecipeDetails(id);
       setRecipe(data);
-      
     } catch (error) {
       console.log(error);
     }
@@ -65,27 +62,45 @@ export const RecipeDetails = () => {
         </Info>
       </Details>
       <NutritionalDetails nutrition={recipe.nutrition} />
-      
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   .activated {
     background: linear-gradient(to right, rgb(244, 183, 70), #e94057);
     color: white;
   }
+  margin: 10px;
   text-align: left;
+  @media (min-width: 961px) {
+    flex-direction: row;
+  }
 `;
 
 const Image = styled.div`
   flex: 1;
   p {
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: rgb(244, 183, 70);
+    font-size: 1em;
+    font-weight: bold;
+    @media (min-width: 320px) {
+      font-size: 1em;
+      font-weight: bold;
+    }
+    @media (min-width: 641px) {
+      font-size: 1.13em;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 961px) {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 3rem;
+    }
   }
   img {
     width: 75%;
@@ -97,7 +112,12 @@ const Details = styled.div`
   div {
     display: flex;
     gap: 1rem;
-    margin-bottom: 3rem;
+  }
+  @media (min-width: 320px) {
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 641px) {
+    margin-top: 1.5rem;
   }
 `;
 
@@ -113,5 +133,13 @@ const Button = styled.button`
 const Info = styled.div`
   div {
     flex-direction: column;
+    @media (min-width: 320px) {
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    @media (min-width: 641px) {
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
   }
 `;
