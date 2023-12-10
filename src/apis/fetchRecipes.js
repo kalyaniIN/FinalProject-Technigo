@@ -30,7 +30,7 @@ export const getVeganKeto = async () => {
 
 export const getHealthyDietRecipes = async () => {
   const healthyDietKey = "healthy_diet_keto";
-  const URL = `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeNutrition=true&sort=random`;
+  const URL = `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeNutrition=true&sort=calories`;
 
   const localData = localStorage.getItem(healthyDietKey);
   if (localData && localData !== "undefined" && localData.length > 0) {
@@ -45,7 +45,7 @@ export const getHealthyDietRecipes = async () => {
 
 export const getRecipeDetails = async (id) => {
   const recipeKey = `recipe_${id}`;
-  const URL = `${RECIPE_DETAILS_BASE_URL}/${id}/information?apiKey=${API_KEY}&includeNutrition=true`;
+  const URL = `${RECIPE_DETAILS_BASE_URL}/${id}/information?apiKey=${API_KEY}&includeNutrition=true&servings=1`;
 
   const localData = localStorage.getItem(recipeKey);
   if (localData && localData !== "undefined") {

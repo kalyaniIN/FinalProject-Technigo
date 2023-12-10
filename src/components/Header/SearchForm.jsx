@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
+import { BsSearch } from "react-icons/bs";
 
 export const SearchForm = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,7 +18,9 @@ export const SearchForm = () => {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      <SearchButton onClick={handleSearch}>Search</SearchButton>
+      <SearchButton onClick={handleSearch}>
+        <BsSearch className="btn-icon" size={20} />
+      </SearchButton>
     </SearchContainer>
   );
 };
@@ -35,10 +38,10 @@ const SearchInput = styled.input`
 `;
 
 const SearchButton = styled.button`
-  padding: 0.5rem 1rem;
+  padding: 5px 10px;
   background-color: rgb(244, 183, 70);
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 90px;
   cursor: pointer;
 `;

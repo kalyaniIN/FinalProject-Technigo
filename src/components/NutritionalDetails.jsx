@@ -12,10 +12,12 @@ export const NutritionalDetails = ({ nutrition }) => {
       <NutritionalContainer>
         {nutritionalDetails && (
           <div>
-            <p>Calories: {nutritionalDetails.calories} kcal</p>
-            <p>Fat: {nutritionalDetails.fat} g</p>
-            <p>Carbohydrates: {nutritionalDetails.carbs} g</p>
-            <p>Protein: {nutritionalDetails.protein} g</p>
+            {/* <h2>Servings: {nutritionalDetails.servings}</h2> */}
+            {nutritionalDetails.map((detail, index) => (
+              <p key={index}>
+                {detail.name}: {detail.value} {detail.unit}
+              </p>
+            ))}
           </div>
         )}
       </NutritionalContainer>
@@ -32,11 +34,32 @@ const getNutritionalDetails = (nutrition) => {
   const fat = getAmount("Fat", nutrition.nutrients);
   const carbs = getAmount("Carbohydrates", nutrition.nutrients);
   const protein = getAmount("Protein", nutrition.nutrients);
-  return { calories, fat, carbs, protein };
+  const fiber = getAmount("Fiber", nutrition.nutrients);
+  const cholesterol = getAmount("Cholesterol", nutrition.nutrients);
+  const sugar = getAmount("Sugar", nutrition.nutrients);
+  const iron = getAmount("Iron", nutrition.nutrients);
+  const calcium = getAmount("Calcium", nutrition.nutrients);
+
+  return [
+    calories,
+    fat,
+    carbs,
+    protein,
+    fiber,
+    cholesterol,
+    sugar,
+    iron,
+    calcium,
+  ];
 };
 
 const getAmount = (key, nutrients) => {
-  return nutrients.filter((n) => n.name == key)[0]?.amount.toFixed();
+  const nutrient = nutrients.filter((n) => n.name == key)[0];
+  return {
+    name: key,
+    value: nutrient?.amount.toFixed(),
+    unit: nutrient?.unit,
+  };
 };
 
 const HeaderTitle = styled.div`

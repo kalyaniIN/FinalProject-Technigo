@@ -1,4 +1,4 @@
-# React + Vite
+# FinalProject-Technigo# React + Vite
 
 Project- BalncedBites
 
@@ -20,3 +20,9 @@ Built With:
 4.Redux tool kit
 5.React Splide used to generate slider
 6.React Router DOM : Used for in-app routes
+
+Deployed link:
+https://chipper-ganache-01c84e.netlify.app
+
+
+
