@@ -13,7 +13,7 @@ function App() {
         <SearchForm />
         <Pages />
       </BrowserRouter>
-      <div style={{ marginTop: "100px", marginBottom: "50px" }}></div>
+      
     </div>
   );
 }

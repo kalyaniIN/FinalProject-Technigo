@@ -5,9 +5,11 @@ import { NutritionalDetails } from "./NutritionalDetails";
 
 import { getRecipeDetails } from "../apis/fetchRecipes";
 
+
 export const RecipeDetails = () => {
   const params = useParams();
   const [recipe, setRecipe] = useState({});
+  
 
   useEffect(() => {
     getData(params.id);
@@ -19,6 +21,7 @@ export const RecipeDetails = () => {
     try {
       const data = await getRecipeDetails(id);
       setRecipe(data);
+      
     } catch (error) {
       console.log(error);
     }
@@ -62,6 +65,7 @@ export const RecipeDetails = () => {
         </Info>
       </Details>
       <NutritionalDetails nutrition={recipe.nutrition} />
+      
     </Wrapper>
   );
 };

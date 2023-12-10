@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { BsSearch } from "react-icons/bs";
 import { CuisineType } from "./CuisineType";
 import { Link } from "react-router-dom";
 import { searchRecipesByQuery } from "../../apis/fetchRecipes";
@@ -10,10 +11,14 @@ export const SearchForm = () => {
 
   const handleSearch = async () => {
     try {
+      if (searchQuery.length > 0) {
       const data = await searchRecipesByQuery(searchQuery);
       setSearchResults(
         data.results && data.results.length > 0 ? data.results : []
       );
+      }
+      setSearchResults(null);
+      
     } catch (error) {
       console.error("Error during search:", error);
     }
@@ -28,7 +33,7 @@ export const SearchForm = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <SearchButton onClick={handleSearch}>Search</SearchButton>
+        <SearchButton onClick={handleSearch}><BsSearch className='btn-icon' size = {20} /></SearchButton>
       </SearchContainer>
 
       <CuisineType />
@@ -75,12 +80,13 @@ const SearchInput = styled.input`
 `;
 
 const SearchButton = styled.button`
-  padding: 0.5rem 1rem;
+  padding: 5px 10px;
   background-color:  rgb(244, 183, 70);
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 90px;
   cursor: pointer;
+  
 `;
 
 const SearchResultsSection = styled.section`
