@@ -31,10 +31,11 @@ const SearchContainer = styled.div`
 `;
 
 const SearchInput = styled.input`
-  padding: 0.5rem;
+padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 0.5rem;
+  border-radius: 50px;
 `;
 
 const SearchButton = styled.button`
@@ -45,7 +46,6 @@ const SearchButton = styled.button`
   border-radius: 90px;
   cursor: pointer;
   vertical-align: middle;
-  background-color: ${({ disabled }) =>
-    !disabled ? "rgb(244, 183, 70)" : "gray"};
+  background-color: rgb(244, 183, 70) ;
   cursor: ${({ disabled }) => (!disabled ? "pointer" : null)};
 `;

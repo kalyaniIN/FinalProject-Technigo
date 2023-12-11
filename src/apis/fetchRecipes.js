@@ -1,6 +1,6 @@
 import { fetchData } from "./fetchData";
 
-const API_KEY = "dca7e0f9f77c400aa4cb72b57e168d23";
+const API_KEY = "2704a40d7be1496ea5aac2c1d7f0a7fc";
 
 const BASE_URL = "https://api.spoonacular.com/";
 const SEARCH_BASE_URL = `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&number=12&addRecipeNutrition=true&sort=random`;
