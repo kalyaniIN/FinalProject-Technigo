@@ -119,7 +119,7 @@ const Image = styled.img`
   border-radius: 20px;
   object-fit: cover;
   width: 80%;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   margin-top: 3rem;
   height: auto;
   max-width: 350px;
