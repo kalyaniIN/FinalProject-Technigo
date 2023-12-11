@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { RecipeList } from "./RecipeList";
+import { RecipeSplide } from "./RecipeSplide";
 import { getVegetarianRecipeItems } from "../../reducers/recipe/recipeSlice";
 
 export const Vegetarian = () => {
@@ -15,7 +15,7 @@ export const Vegetarian = () => {
   }, [dispatch]);
 
   return (
-    <RecipeList
+    <RecipeSplide
       title="Popular Vegetarian Recipes"
       recipes={vegetarianRecipeItems}
       isLoading={isVegetarianRecipeLoading}

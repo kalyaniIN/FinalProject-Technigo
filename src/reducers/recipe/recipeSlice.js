@@ -12,6 +12,7 @@ const initialState = {
   vegetarianRecipeItems: [],
   popularRecipeItems: [],
   healthyDietRecipeItems: [],
+  favoriteRecipeItems: [],
   isVeganRecipeLoading: true,
   isVegetarianRecipeLoading: true,
   isPopularRecipeLoading: true,
@@ -71,7 +72,20 @@ export const getHealthyDietRecipeItems = createAsyncThunk(
 const recipeSlice = createSlice({
   name: "recipe",
   initialState,
-  reducers: {},
+  reducers: {
+    addToFavorites: (state, action) => {
+      const recipe = action.payload;
+      const existingRecipe = state.favoriteRecipeItems.find(
+        (r) => r.id === recipe.id
+      );
+
+      if (existingRecipe !== undefined) {
+        return;
+      }
+
+      state.favoriteRecipeItems.push(recipe);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getVeganRecipeItems.pending, (state) => {
@@ -116,5 +130,7 @@ const recipeSlice = createSlice({
       });
   },
 });
+
+export const { addToFavorites } = recipeSlice.actions;
 
 export default recipeSlice.reducer;

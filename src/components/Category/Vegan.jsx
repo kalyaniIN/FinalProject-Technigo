@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { RecipeList } from "./RecipeList";
+import { RecipeSplide } from "./RecipeSplide";
 import { getVeganRecipeItems } from "../../reducers/recipe/recipeSlice";
 
 export const Vegan = () => {
@@ -15,7 +15,7 @@ export const Vegan = () => {
   }, [dispatch]);
 
   return (
-    <RecipeList
+    <RecipeSplide
       title="Popular Vegan Recipes"
       recipes={veganRecipeItems}
       isLoading={isVeganRecipeLoading}

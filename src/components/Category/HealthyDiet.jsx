@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { RecipeList } from "./RecipeList";
+import { RecipeSplide } from "./RecipeSplide";
 import { getHealthyDietRecipeItems } from "../../reducers/recipe/recipeSlice";
 
 export const HealthyDiet = () => {
@@ -15,7 +15,7 @@ export const HealthyDiet = () => {
   }, [dispatch]);
 
   return (
-    <RecipeList
+    <RecipeSplide
       title="HealthyDiet Recipes (Low meat or no meat)"
       recipes={healthyDietRecipeItems}
       isLoading={isHealthyDietRecipeLoading}

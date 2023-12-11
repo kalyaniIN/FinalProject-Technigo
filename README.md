@@ -4,7 +4,7 @@ Project- BalncedBites
 
 About:
 
-Recipe App crafted with React JS, enriched by the Spoonacular Food and Recipe API. This application empowers users to effortlessly search for, explore, and access a vast array of recipes, along with detailed ingredient lists and step-by-step instructionsWith the help of the spoonacular api, users of the Balanced Bites  app can access for recipes based on keywords and browse recipe information.
+Recipe App crafted with React JS, enriched by the Spoonacular Food and Recipe API. This application empowers users to effortlessly search for, explore, and access a vast array of recipes, along with detailed ingredient lists and step-by-step instructionsWith the help of the spoonacular api, users of the Balanced Bites app can access for recipes based on keywords and browse recipe information.
 
 Features:
 
