@@ -25,7 +25,11 @@ export const RecipeList = ({ title, recipes, isLoading }) => {
                 <Card>
                   <Link to={`recipe/${recipe.id}`}>
                     <Title>
-                      <p>{recipe.title}</p>
+                    {recipe.title.length < 35 ? (
+              <p>{recipe.title}</p>
+            ) : (
+              <p>{recipe.title.substring(0, 35)}...</p>
+            )}
                     </Title>
                     <img src={recipe.image} alt="popular food" />
                     <Gradient>
@@ -50,8 +54,10 @@ export const RecipeList = ({ title, recipes, isLoading }) => {
 
 const Wrapper = styled.div`
   margin-bottom: 3rem;
+  margin:10px;
   h2 {
   color: rgb(244, 183, 70);
+  margin-top:35px;
   margin-bottom:20px;
   }
 `;
@@ -62,12 +68,15 @@ const Card = styled.div`
   overflow: hidden;
   width: 100%;
   height: fit-content;
+  background:rgb(82, 78, 69);
   margin-top: 0.7rem;
+  padding: 10px;
+  border-radius: 25px;
   img {
     border-radius: 20px;
     object-fit: cover;
     width: 80%;
-    margin-bottom:20px;
+    margin-bottom:3rem;
     margin-top: 3rem;
   }
 `;
@@ -93,8 +102,10 @@ const Title = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #3a000000, #000000b2);
   border-radius: 20px;
   color: White;
-  font-weight:bold
+  margin-top:20px;
+  font-weight:medium;
+  font-size:20px;
+  font-style:italic;
 `;

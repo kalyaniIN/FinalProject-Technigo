@@ -31,10 +31,13 @@ const Wrapper = styled.div`
   margin-bottom: 3rem;
   gap: 1rem;
   justify-content: center;
+  :hover {
+    background:  rgb(244, 183, 70);
+  }
 `;
 
 const SLink = styled(NavLink)`
-  background: linear-gradient(35deg, #494949, #313131);
+  background:  linear-gradient(35deg, #494949, #313131);
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
@@ -42,10 +45,13 @@ const SLink = styled(NavLink)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-decoration:none;
+  border: 1px solid rgb(244, 183, 70);
   p {
     color: white;
     text-decoration: none;
     font-size: 0.7rem;
+    font-weight:bold;
   }
   svg {
     color: white;

@@ -33,7 +33,7 @@ export const SearchForm = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <SearchButton onClick={handleSearch}><BsSearch className='btn-icon' size = {20} /></SearchButton>
+        <SearchButton onClick={handleSearch}><BsSearch className='btn-icon' /></SearchButton>
       </SearchContainer>
 
       <CuisineType />
@@ -77,6 +77,7 @@ const SearchInput = styled.input`
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 0.5rem;
+  border-radius: 50px;
 `;
 
 const SearchButton = styled.button`
@@ -84,8 +85,11 @@ const SearchButton = styled.button`
   background-color:  rgb(244, 183, 70);
   color: #fff;
   border: none;
-  border-radius: 90px;
+  border-radius: 50%;
   cursor: pointer;
+  width:35px;
+  height:35px;
+  margin-top:10px;
   
 `;
 
