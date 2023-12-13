@@ -6,19 +6,19 @@ import styled from "styled-components";
 export const CuisineType = () => {
   return (
     <Wrapper>
-      <SLink to={"/cuisine/Indian"}>
+      <SLink to={"/cuisine/indian"}>
         <FaPizzaSlice />
         <p>Indian</p>
       </SLink>
-      <SLink to={"/cuisine/American"}>
+      <SLink to={"/cuisine/american"}>
         <FaHamburger />
         <p>American</p>
       </SLink>
-      <SLink to={"/cuisine/European"}>
+      <SLink to={"/cuisine/european"}>
         <GiNoodles />
         <p>European</p>
       </SLink>
-      <SLink to={"/cuisine/Chinese"}>
+      <SLink to={"/cuisine/chinese"}>
         <GiChopsticks />
         <p>Chinese</p>
       </SLink>

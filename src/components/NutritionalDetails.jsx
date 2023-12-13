@@ -4,12 +4,12 @@ export const NutritionalDetails = ({ nutrition }) => {
   const nutritionalDetails = getNutritionalDetails(nutrition);
 
   return (
-    <div>
-      <HeaderTitle>
-        <p>Nutritional Details</p>
-      </HeaderTitle>
-
+    <>
       <NutritionalContainer>
+        <HeaderTitle>
+          <p>Nutritional Details</p>
+        </HeaderTitle>
+
         {nutritionalDetails && (
           <div>
             {/* <h2>Servings: {nutritionalDetails.servings}</h2> */}
@@ -21,7 +21,7 @@ export const NutritionalDetails = ({ nutrition }) => {
           </div>
         )}
       </NutritionalContainer>
-    </div>
+    </>
   );
 };
 
@@ -63,36 +63,45 @@ const getAmount = (key, nutrients) => {
 };
 
 const HeaderTitle = styled.div`
+margin-top:10px;
   p {
     color: rgb(244, 183, 70);
-    font-size: 0.83em;
+    font-size: 1.3em;
     font-weight: bold;
   }
   @media (min-width: 320px) {
     p {
-      font-size: 0.83em;
+      font-size: 1.3em;
       font-weight: bold;
     }
   }
   @media (min-width: 641px) {
     p {
-      font-size: 1em;
+      font-size: 1.3em;
       font-weight: bold;
     }
   }
   @media (min-width: 961px) {
     p {
-      font-size: 1.13em;
+      font-size: 1.5em;
       font-weight: bold;
+      text-align: center;
+      padding-bottom:20px;
+      margin-top:-15px;
     }
   }
 `;
 
 const NutritionalContainer = styled.div`
-  border: 1px solid #ccc;
+  
   padding: 10px;
-  margin-top: 10px;
+ 
+  p {
+    padding-top: 10px;
+    text-align:center;
+    
+  }
   @media (min-width: 961px) {
-    margin-top: 20px;
+    margin-top: 75px;
   }
 `;

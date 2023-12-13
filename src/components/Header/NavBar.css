@@ -1,23 +1,25 @@
 .nav-bar {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr ; 
   background-color: rgb(244, 183, 70);
-  padding: 15px;
+  padding: 10px;
 
 }
 
 .nav-bar-favorites {
-  margin-top: 22px;
+  padding-right: 20px;
   text-align: right;
 }
 
 .nav-bar-favorites a {
   color: white;
+  font-size: 25px;
 }
 
 .nav-bar-brand {
   display: flex;
   flex-wrap: nowrap;
+
 }
 
 .nav-bar-brand svg {
@@ -30,8 +32,8 @@
 }
 
 .nav-bar-brand a {
-  color: white; /* Set text color to white for navigation links */
-  margin-left: 20px; /* Add some margin between links */
+  color: white; 
+  margin-left: 20px; 
   text-decoration: none;
 }
 
@@ -41,10 +43,6 @@
 
 .nav-bar a {
   text-decoration: none;
-}
-
-.nav-bar .active {
-  text-decoration: underline;
 }
 
 @media (min-width: 728px) {
