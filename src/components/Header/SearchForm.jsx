@@ -13,13 +13,20 @@ export const SearchForm = () => {
   return (
     <SearchContainer>
       <SearchInput
+        id="searchInput"
+        name="searchText"
         type="text"
         placeholder="Search for recipes..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         aria-label="Search for recipes"
       />
-      <SearchButton disabled={!searchQuery.trim()} onClick={handleSearch}>
+      <SearchButton
+        id="searchButton"
+        title="Click to search"
+        disabled={!searchQuery.trim()}
+        onClick={handleSearch}
+      >
         <BsSearch className="btn-icon" size={20} />
       </SearchButton>
     </SearchContainer>
