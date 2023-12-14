@@ -17,7 +17,7 @@ export const SearchForm = () => {
         placeholder="Search for recipes..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        aria-label="Search for recipes"   
+        aria-label="Search for recipes"
       />
       <SearchButton disabled={!searchQuery.trim()} onClick={handleSearch}>
         <BsSearch className="btn-icon" size={20} />
@@ -32,7 +32,7 @@ const SearchContainer = styled.div`
 `;
 
 const SearchInput = styled.input`
-padding: 0.5rem;
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 0.5rem;
@@ -47,6 +47,6 @@ const SearchButton = styled.button`
   border-radius: 90px;
   cursor: pointer;
   vertical-align: middle;
-  background-color: rgb(244, 183, 70) ;
+  background-color: rgb(244, 183, 70);
   cursor: ${({ disabled }) => (!disabled ? "pointer" : null)};
 `;

@@ -1,9 +1,8 @@
 .nav-bar {
   display: grid;
-   grid-template-columns: 1fr 1fr ; 
+  grid-template-columns: 1fr 1fr;
   background-color: rgb(244, 183, 70);
   padding: 10px;
-
 }
 
 .nav-bar-favorites {
@@ -19,7 +18,6 @@
 .nav-bar-brand {
   display: flex;
   flex-wrap: nowrap;
-
 }
 
 .nav-bar-brand svg {
@@ -32,8 +30,8 @@
 }
 
 .nav-bar-brand a {
-  color: white; 
-  margin-left: 20px; 
+  color: white;
+  margin-left: 20px;
   text-decoration: none;
 }
 

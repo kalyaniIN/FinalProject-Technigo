@@ -12,7 +12,6 @@ export const NutritionalDetails = ({ nutrition }) => {
 
         {nutritionalDetails && (
           <div>
-            {/* <h2>Servings: {nutritionalDetails.servings}</h2> */}
             {nutritionalDetails.map((detail, index) => (
               <p key={index}>
                 {detail.name}: {detail.value} {detail.unit}
@@ -63,7 +62,6 @@ const getAmount = (key, nutrients) => {
 };
 
 const HeaderTitle = styled.div`
-  // margin-top:10px;
   p {
     color: rgb(244, 183, 70);
     font-size: 1.3em;
@@ -98,8 +96,5 @@ const NutritionalContainer = styled.div`
   p {
     padding-top: 5px;
     text-align: center;
-  }
-  @media (min-width: 961px) {
-    // margin-top: 75px;
   }
 `;

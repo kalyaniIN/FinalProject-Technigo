@@ -21,10 +21,10 @@ export const NavBar = () => {
           <NavContainer role="region" aria-label="Favorites">
             {favoriteRecipeItems.length >= 0 && (
               <NavLink to="/favorites">
-                <FaHeart size={37} color="red"  aria-label="Favorites icon" />
+                <FaHeart size={37} color="red" aria-label="Favorites icon" />
                 <FavoriteCount aria-live="polite" aria-atomic="true">
                   {favoriteRecipeItems.length}
-                  </FavoriteCount>
+                </FavoriteCount>
               </NavLink>
             )}
           </NavContainer>
@@ -33,10 +33,8 @@ export const NavBar = () => {
     </nav>
   );
 };
-const NavContainer = styled.div`
-  // position: relative;
-  // display: inline-block;
-`;
+
+const NavContainer = styled.div``;
 
 const FavoriteCount = styled.span`
   position: absolute;

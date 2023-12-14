@@ -145,10 +145,7 @@ const Wrapper = styled.div`
 `;
 
 const Image = styled.div`
-  // flex: 1;
-
   p {
-    // margin-bottom: 1rem;
     color: rgb(244, 183, 70);
     font-size: 1em;
     font-weight: bold;
@@ -164,20 +161,15 @@ const Image = styled.div`
     @media (min-width: 961px) {
       font-size: 1.5em;
       font-weight: bold;
-      // margin-bottom: 3rem;
-      // padding-top:10px;
     }
   }
   img {
-    // width: 100%;
     max-width: 100%;
     padding: 10px;
   }
   @media (min-width: 961px) {
-    // margin-top:50px;
     height: 100%;
     img {
-      // height: auto;
       object-fit: cover;
       width: 100%;
       display: block;
@@ -212,7 +204,6 @@ const ButtonHeart = styled.button`
 `;
 
 const Details = styled.div`
-  // flex: 1;
   height: 100%;
   div {
     display: flex;
@@ -220,11 +211,6 @@ const Details = styled.div`
     align-items: center;
     justify-content: center;
   }
-
-  // @media (min-width: 961px) {
-  //   margin-top: 4.8rem;
-
-  // }
 `;
 
 const Button = styled.button`
