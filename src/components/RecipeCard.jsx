@@ -35,7 +35,7 @@ const RecipeImage = ({ recipe }) => {
       <Image src={recipe.image} alt={recipe.title} />
       <IconWrapper>
         {location.pathname !== "/favorites" && (
-          <Button title="Add to favorite" onClick={handleFavoritesClick}>
+          <Button title="Add to favorite" onClick={handleFavoritesClick} aria-label="Add to Favorites">
             <Svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16.933333 16.933334"
@@ -51,7 +51,7 @@ const RecipeImage = ({ recipe }) => {
             </Svg>
           </Button>
         )}
-        <Button title="Recipe details" onClick={handleDetailsClick}>
+        <Button title="Recipe details" onClick={handleDetailsClick} aria-label="Recipe Details">
           <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <g>
               <circle cx="2.5" cy="12.5" r="2.5" />

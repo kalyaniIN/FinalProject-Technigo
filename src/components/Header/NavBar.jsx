@@ -18,11 +18,13 @@ export const NavBar = () => {
           </NavLink>
         </div>
         <div className="nav-bar-favorites">
-          <NavContainer>
+          <NavContainer role="region" aria-label="Favorites">
             {favoriteRecipeItems.length >= 0 && (
               <NavLink to="/favorites">
-                <FaHeart size={40} color="red" />{" "}
-                <FavoriteCount>{favoriteRecipeItems.length}</FavoriteCount>
+                <FaHeart size={37} color="red"  aria-label="Favorites icon" />
+                <FavoriteCount aria-live="polite" aria-atomic="true">
+                  {favoriteRecipeItems.length}
+                  </FavoriteCount>
               </NavLink>
             )}
           </NavContainer>
