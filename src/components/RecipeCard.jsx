@@ -129,7 +129,7 @@ const IconWrapper = styled.span`
   width: auto;
   position: absolute;
   top: 45%;
-  left: 35%;
+  left: 40%;
   display: flex;
   justify-content: center;
   gap: 25px;

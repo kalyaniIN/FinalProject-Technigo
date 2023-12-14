@@ -1,6 +1,6 @@
 import { fetchData } from "./fetchData";
 
-const API_KEY = "2704a40d7be1496ea5aac2c1d7f0a7fc";
+const API_KEY = import.meta.env.VITE_OPENDB_KEY;
 
 const BASE_URL = "https://api.spoonacular.com/";
 const SEARCH_BASE_URL = `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&number=12&addRecipeNutrition=true&sort=random`;

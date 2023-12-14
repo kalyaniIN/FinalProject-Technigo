@@ -34,8 +34,8 @@ export const RecipeDetails = () => {
   return (
     <Wrapper>
       <Image>
-        <p>{recipe.title}</p>
-        <img src={recipe.image} alt={recipe.title} />
+        <p>{recipe.title}
+
         <IconWrapper>
         {location.pathname !== "/favorites" && (
           <ButtonHeart title="Add to favorite" onClick={handleFavoritesClick}>
@@ -56,6 +56,9 @@ export const RecipeDetails = () => {
         )}
         
       </IconWrapper>
+        </p>
+        <img src={recipe.image} alt={recipe.title} />
+        
                   
       </Image>
 
@@ -98,7 +101,8 @@ export const RecipeDetails = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin-top:30px;
+  padding: 0px 10px 0px 5px;
   text-align: left;
   
   .activated {
@@ -115,18 +119,21 @@ const Wrapper = styled.div`
     
   }
   @media (min-width: 961px) {
-    padding-right:20px;
+    padding:10px;
     display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
+  grid-auto-rows:1fr;
+  grid-column-gap: 30px;
+  height:100%; 
   }
   
 `;
 
 const Image = styled.div`
-  flex: 1;
+  // flex: 1;
   
   p {
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem;
     color: rgb(244, 183, 70);
     font-size: 1em;
     font-weight: bold;
@@ -143,19 +150,25 @@ const Image = styled.div`
       font-size: 1.5em;
       font-weight: bold;
       // margin-bottom: 3rem;
-      padding-top:10px;
+      // padding-top:10px;
 
       
     }
   }
   img {
-    width: 100%;
+    // width: 100%;
+    max-width: 100%;
+    padding:10px;
    
   }
   @media (min-width: 961px) {
-    margin-top:50px;
+    // margin-top:50px;
+    height:100%;
     img {
-      height: auto;
+      // height: auto;
+      object-fit: cover;
+      width: 100%;
+      display: block;
     }
     
   }
@@ -163,13 +176,11 @@ const Image = styled.div`
 const IconWrapper = styled.span`
   width: auto;
   position: absolute;
-  // top: 45%;
-  // left: 35%;
-  display: block;
-  // justify-content: center;
-  // gap: 25px;
+  
+  display: inline;
   opacity: 1;
   transition: 0.4s;
+  padding-left:10px;
 `;
 const Svg = styled.svg`
   fill: white;
@@ -191,7 +202,8 @@ const ButtonHeart = styled.button`
 
 const Details = styled.div`
 
-  flex: 1;
+  // flex: 1;
+  height:100%;
   div {
     display: flex;
     gap: 1rem;
@@ -199,11 +211,11 @@ const Details = styled.div`
     justify-content: center; 
   }
   
-  @media (min-width: 961px) {
-    margin-top: 4.8rem;
+  // @media (min-width: 961px) {
+  //   margin-top: 4.8rem;
    
     
-  }
+  // }
 `;
 
 const Button = styled.button`
@@ -213,6 +225,11 @@ const Button = styled.button`
   font-weight: bolder;
   background-color: white;
   cursor: pointer;
+  @media (max-width: 340px) {
+      padding: 0.5rem ;
+     
+      
+     }
 `;
 
 const Info = styled.div`

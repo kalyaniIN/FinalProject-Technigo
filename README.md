@@ -12,6 +12,10 @@ Features:
 2.Recipe Image
 3.similar suggested recipes
 4.Recipe details with Nutritional Values
+5.favourite button
+6.Search by ingradient functionality
+
+ The main function of the application is the recipe search feature in which a updated collection of recipes can be sorted through using ingradients keywords that a user might use. Each of the recipes can have favourites button to add it to your favourites list and have recipe details page.On the home page user can navigate through the list of catergories,in which each categorie will display recipe details.Recipe details page displays information about particular recipe instructions,ingradients and Nutritional values. When the user hover over the card ,they can see two buttons for favourites and recipe details.
 
 Built With:
 1.React for UI

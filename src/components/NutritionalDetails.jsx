@@ -63,7 +63,7 @@ const getAmount = (key, nutrients) => {
 };
 
 const HeaderTitle = styled.div`
-margin-top:10px;
+// margin-top:10px;
   p {
     color: rgb(244, 183, 70);
     font-size: 1.3em;
@@ -86,8 +86,8 @@ margin-top:10px;
       font-size: 1.5em;
       font-weight: bold;
       text-align: center;
-      padding-bottom:20px;
-      margin-top:-15px;
+      // padding-bottom:20px;
+      // margin-top:-15px;
     }
   }
 `;
@@ -95,6 +95,8 @@ margin-top:10px;
 const NutritionalContainer = styled.div`
   
   padding: 10px;
+  font-size: 1.2em;
+  height:100%; 
  
   p {
     padding-top: 10px;
@@ -102,6 +104,6 @@ const NutritionalContainer = styled.div`
     
   }
   @media (min-width: 961px) {
-    margin-top: 75px;
+    // margin-top: 75px;
   }
 `;
