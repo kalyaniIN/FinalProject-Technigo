@@ -17,6 +17,7 @@ export const SearchForm = () => {
         placeholder="Search for recipes..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        aria-label="Search for recipes"   
       />
       <SearchButton disabled={!searchQuery.trim()} onClick={handleSearch}>
         <BsSearch className="btn-icon" size={20} />

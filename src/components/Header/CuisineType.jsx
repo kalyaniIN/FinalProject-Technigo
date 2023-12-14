@@ -5,20 +5,20 @@ import styled from "styled-components";
 
 export const CuisineType = () => {
   return (
-    <Wrapper role="list">
-      <SLink to={"/cuisine/indian"} role="listitem">
+    <Wrapper >
+      <SLink to={"/cuisine/indian"} >
         <FaPizzaSlice aria-hidden="true"/>
         <p>Indian</p>
       </SLink>
-      <SLink to={"/cuisine/american"} role="listitem">
+      <SLink to={"/cuisine/american"} >
         <FaHamburger aria-hidden="true" />
         <p>American</p>
       </SLink>
-      <SLink to={"/cuisine/european"} role="listitem">
+      <SLink to={"/cuisine/european"} >
         <GiNoodles aria-hidden="true"/>
         <p>European</p>
       </SLink>
-      <SLink to={"/cuisine/chinese"} role="listitem">
+      <SLink to={"/cuisine/chinese"} >
         <GiChopsticks aria-hidden="true" />
         <p>Chinese</p>
       </SLink>
