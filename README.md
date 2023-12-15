@@ -27,4 +27,4 @@ Built With:
 6. React Router DOM : Used for in-app routes
 
 Deployed link:
-https://chipper-ganache-01c84e.netlify.app
+https://food-recipe-app-technigo.netlify.app/
